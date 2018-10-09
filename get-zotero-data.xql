@@ -133,9 +133,12 @@ declare function local:process-results($results as item()*){
 :)
 declare function local:get-zotero-data($url){ 
     if(request:get-parameter('action', '') = 'initiate') then 
-            http:send-request(<http:request http-version="1.1" href="{xs:anyURI($url)}" method="get"/>)
+            http:send-request(<http:request http-version="1.1" href="{xs:anyURI($url)}" method="get">
+                                <http:header name="Connection" value="close"/>
+                                </http:request>)
     else http:send-request(<http:request http-version="1.1" href="{xs:anyURI($url)}" method="get">
                              <http:header name="If-Modified-Since-Version" value="{$last-modified-version}"/>
+                             <http:header name="Connection" value="close"/>
                            </http:request>)
 };
 
