@@ -1,10 +1,10 @@
 <zotero-config>
     <!-- Used by get-zotero-data.pp.xql-->
-    <groupid>538215</groupid>
+    <groupid>538215/collections/ZW2MKCYV</groupid>
     <last-modified-version>1709</last-modified-version>
     <!-- format json or tei -->
     <format>json</format>
-    <data-dir>/db/apps/ba-data-dev/data/bibl/tei</data-dir>
+    <data-dir>/db/apps/ba-data-test/data/bibl/tei</data-dir>
     <base-uri>https://biblia-arabica.com/bibl</base-uri>
     <!-- Allowed values: auto-generated, zotero -->
     <id-pattern>zotero</id-pattern>
