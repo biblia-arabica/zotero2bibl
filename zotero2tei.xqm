@@ -102,7 +102,7 @@ let $isbn-idnos :=
         return <idno type='ISBN'>{$isbn}</idno>       
 let $doi-idnos :=
     for $doi in $rec/idno[@type='DOI']
-    return <idno type='URI'>https://doi.org/{normalize-space($doi)}</idno>
+    return <idno type='DOI'>{normalize-space($doi)}</idno>
 let $all-idnos := ($local-uri,$zotero-idno,$zotero-idno-uri,$callNumber-idnos,$issn-idnos,$isbn-idnos,$doi-idnos)
 (:    Reconstructs record using transformed data. :)
 let $tei-analytic :=
