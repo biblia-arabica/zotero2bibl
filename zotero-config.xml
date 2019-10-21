@@ -3,6 +3,7 @@
     <groupid>538215/collections/ZW2MKCYV</groupid>
     <altgroupid>538215</altgroupid>
     <altgroupid>biblia_arabica</altgroupid>
+    <altgroupid>538215/biblia_arabica</altgroupid>
     <last-modified-version>1709</last-modified-version>
     <!-- format json or tei -->
     <format>json</format>
