@@ -216,7 +216,10 @@ let $titles-all := ($analytic-title,$series-titles,$journal-titles)
 let $local-uri := <idno type="URI">{$local-id}</idno>   
 (: DOI :)
 let $doi-uri := for $doi in $rec?data?DOI[. != '']
-                return <idno type="DOI">{$doi}</idno>
+                let $link := if(starts-with($doi,'https://doi.org/')) then $doi else concat('https://doi.org/',$doi)
+                let $text := if(starts-with($doi,'https://doi.org/')) then substring-after($doi,'https://doi.org/') else $doi
+                return 
+                    (<idno type="URI">{$link}</idno>,<idno type="DOI">{$text}</idno>)
 (:    Uses the Zotero ID (manually numbered tag) to add an idno with @type='zotero':)
 let $zotero-idno := <idno type="URI">{$rec?links?alternate?href}</idno>  
 (:  Equals the biblStruct/@corresp URI to idno with @type='URI' :)
