@@ -377,7 +377,15 @@ let $citation :=
             if ($text/node()) then element {$text/name()} {$text/@*, $no-tags} else $no-tags
     return 
     element bibl {attribute type {'formatted'}, attribute subtype {'https://www.zotero.org/styles/chicago-note-bibliography-16th-edition'}, $tei-citation}
-
+let $coins := 
+    let $get-coins := $rec?coins
+    let $target := substring-before(substring-after($get-coins,"title='"),"'")
+    return 
+        if($get-coins != '') then 
+          element bibl {attribute type {'formatted'}, attribute subtype {'coins'}, 
+               element ptr {attribute target {$target}}
+          }  
+        else ()
 return
     <TEI xmlns="http://www.tei-c.org/ns/1.0">
         <teiHeader>
@@ -466,6 +474,7 @@ return
                   {$getNotes}
                 </biblStruct>
                 {$citation}
+                {$coins}
                 {$list-relations}
             </body>
         </text>
